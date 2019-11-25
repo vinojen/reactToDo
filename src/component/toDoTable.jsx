@@ -1,6 +1,6 @@
 import React from "react";
 
-const ToDoTable = ({tasks})=> {
+const ToDoTable = ({tasks,onDelete})=> {
   return (
     <div>
       <table>
@@ -10,14 +10,14 @@ const ToDoTable = ({tasks})=> {
             <th>name</th>
             <th>desc</th>
           </tr>
-          {tasks.map(t => {
+          {tasks.map((t,index) => {
             return (
               <tr key={t.id}>
                 <td>{t.id}</td>
                 <td>{t.name}</td>
                 <td>{t.desc}</td>
                 <td>
-                  <button>Del</button>
+                  <button onClick={()=>onDelete(t)} >Delete</button>
                 </td>
               </tr>
             );

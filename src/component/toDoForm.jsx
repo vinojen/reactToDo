@@ -29,6 +29,11 @@ class ToDoForm extends Component {
     task.desc='';
     this.setState({task:task})
     console.log(this.state.task)
+  };
+
+  handleDelete=(task)=>{
+  const tasks=this.state.tasks.filter(t=>t.id !== task.id)
+  this.setState({ tasks  });
   }
   render() {
     return (
@@ -55,7 +60,7 @@ class ToDoForm extends Component {
           onChange={this.handleChange}
         />
         <input type="button" value="add" onClick={this.handleADDS} />
-        <ToDoTable tasks={this.state.tasks}/>
+        <ToDoTable tasks={this.state.tasks} onDelete={this.handleDelete}/>
       </div>
     );
   }
